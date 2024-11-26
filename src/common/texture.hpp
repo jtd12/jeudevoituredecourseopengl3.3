@@ -1,5 +1,7 @@
 #ifndef TEXTURE_HPP
 #define TEXTURE_HPP
+#define GLEW_STATIC
+#include"C:/library/glew-1.13.0/include/GL/glew.h"
 #include<GL/gl.h>
 #include<GL/glu.h>
 #include"C:\library\glm\glm\glm.hpp"

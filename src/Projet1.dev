@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=3
 CompilerSettings=0000000100000000000000000
-UnitCount=29
+UnitCount=33
 
 [VersionInfo]
 Major=1
@@ -280,28 +280,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit30]
-FileName=common\camera.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit31]
-FileName=common\camera.hpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit32]
-FileName=common\AllCars.cpp
+FileName=common\text2D.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -311,7 +291,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit33]
-FileName=common\AllCars.h
+FileName=common\text2D.hpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -372,6 +352,26 @@ BuildCmd=
 
 [Unit23]
 FileName=common\shader.hpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit30]
+FileName=common\hud.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit31]
+FileName=common\hud.hpp
 CompileCpp=1
 Folder=
 Compile=1

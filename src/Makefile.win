@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o gameSetup.o common/objloader.o common/skybox.o common/car.o common/decor.o common/playerCam.o common/water.o common/texture.o common/carAI.o common/particuleSystem.o common/shader.o common/camera.o common/AllCars.o common/sound.o
-LINKOBJ  = main.o gameSetup.o common/objloader.o common/skybox.o common/car.o common/decor.o common/playerCam.o common/water.o common/texture.o common/carAI.o common/particuleSystem.o common/shader.o common/camera.o common/AllCars.o common/sound.o
+OBJ      = main.o gameSetup.o common/objloader.o common/skybox.o common/car.o common/decor.o common/playerCam.o common/water.o common/texture.o common/carAI.o common/particuleSystem.o common/shader.o common/camera.o common/AllCars.o common/sound.o common/hud.o common/text2D.o
+LINKOBJ  = main.o gameSetup.o common/objloader.o common/skybox.o common/car.o common/decor.o common/playerCam.o common/water.o common/texture.o common/carAI.o common/particuleSystem.o common/shader.o common/camera.o common/AllCars.o common/sound.o common/hud.o common/text2D.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc C:/library/glew-1.13.0/lib/Release/Win32/glew32s.lib C:/library/glew-1.13.0/lib/Release/Win32/glew32.lib -lwinmm -lopengl32 -lGLU32 "C:/library/OpenAL 1.1 SDK/libs/Win32/OpenAL32.lib" C:/library/freeglut/lib/freeglut.lib -m32
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -68,3 +68,9 @@ common/AllCars.o: common/AllCars.cpp
 
 common/sound.o: common/sound.cpp
 	$(CPP) -c common/sound.cpp -o common/sound.o $(CXXFLAGS)
+
+common/hud.o: common/hud.cpp
+	$(CPP) -c common/hud.cpp -o common/hud.o $(CXXFLAGS)
+
+common/text2D.o: common/text2D.cpp
+	$(CPP) -c common/text2D.cpp -o common/text2D.o $(CXXFLAGS)

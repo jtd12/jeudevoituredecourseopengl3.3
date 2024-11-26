@@ -47,6 +47,42 @@ public:
 };
 
 
+class bbBox
+{
+	
+	public:
+		bbBox(const char * filename,glm::vec3 l);
+		~bbBox();
+		void update();
+		void draw(glm::mat4 ProjectionMatrix,glm::mat4 ViewMatrix,glm::mat4 ModelMatrix);
+		glm::vec3 getRotation();
+		void setRotationz(float m);
+		void setRotationzegal(float m);
+		void setRotationy(float m);
+		void setRotationyegal(float m);
+		void setLocation(glm::vec3 l);
+		void setParent(glm::vec3 parent,float rotationY,int offset);
+		glm::vec3 getLocation();
+		
+	private:
+		objloader *obj;	
+		glm::vec3 rot;
+		std::vector<glm::vec3> vertices;
+		std::vector<glm::vec2> uvs;
+		std::vector<glm::vec3> normals; // Won't be used at the moment.
+		GLuint uvbuffer;
+		GLuint vertexbuffer;
+		GLuint programID ;
+		GLuint Texture;
+		GLuint TextureID ;
+		GLuint	 vertexUVID ;
+		 GLuint	vertexPosition_modelspaceID;
+		 GLuint	MatrixID;
+		 glm::vec3 loc;
+			
+};  
+
+
 
 class vehicule
 {
@@ -64,6 +100,8 @@ class vehicule
 		glm::vec3 getLocation();
 		void setLocationIncX(float y);
 		void setLocationIncZ(float y);
+		void placementRoues();
+		void setGravity();
 			void move();
 			void setRotation(glm::vec3 r);
 			glm::vec3 getRotation();
@@ -75,25 +113,29 @@ class vehicule
 			void setDOWN(int num);
 			void setRIGHT(int num);
 			void setLEFT(int num);
-			float setSpeed(float num);
-		void setSpeed(float s,float speedJoy);
-		float getSpeed();
-		float getMaxSpeed();
-		void keyboard(char key, int x, int y);
-		void keyboardUP(char key, int x, int y);
-		void inputSpecial(char key,int x, int y);
-		void inputSpecialUP(char key,int x, int y);
-		void control();
-		void setActif(bool b);
-		bool getActif();
-		void fermerPorte1();
-		void fermerPorte2();
-		int getA();
-		void setA(int A);
-	
-		std::vector<roue *> wheel;
-		objloader *obj;
-	
+			void setSpeed(float num);
+			float getSpeed();
+			float getMaxSpeed();
+			void limitSpeed(float s);
+			void keyboard(char key, int x, int y);
+			void keyboardUP(char key, int x, int y);
+			void inputSpecial(char key,int x, int y);
+			void inputSpecialUP(char key,int x, int y);
+			void control();
+			void setActif(bool b);
+			bool getActif();
+			void fermerPorte1();
+			void fermerPorte2();
+			int getA();
+			void setA(int A);
+			void checkPoints(glm::vec3 loc,glm::vec3 loc2);
+			void setPoints(int p);
+			int getPoints();
+			void resetPoints();
+			std::vector<roue *> wheel;
+			objloader *obj;
+			std::vector<bbBox*> bb;
+			std::vector<bbBox*> collidersDetection;
 
 		
 	private:
@@ -126,6 +168,7 @@ GLuint TextureID ;
 GLuint	 vertexUVID ;
  GLuint	vertexPosition_modelspaceID;
  GLuint	MatrixID;
+ int points;
 
 	
 

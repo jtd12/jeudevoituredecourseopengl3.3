@@ -28,6 +28,37 @@ static int points[num][2] = {1000,1160,
 					  -1500,1250};
    
 
+class roueAI
+{
+public:
+		roueAI(const char * filename);
+		~roueAI();
+		void update();
+		void draw(glm::mat4 ProjectionMatrix,glm::mat4 ViewMatrix,glm::mat4 ModelMatrix);
+		glm::vec3 getRotation();
+		void setRotationz(float m);
+		void setRotationzegal(float m);
+		void setRotationy(float m);
+		void setRotationyegal(float m);
+		void setLocation(glm::vec3 l);
+		
+	private:
+		objloader *obj;	
+		glm::vec3 rot_roue;
+		std::vector<glm::vec3> vertices;
+		std::vector<glm::vec2> uvs;
+		std::vector<glm::vec3> normals; // Won't be used at the moment.
+		GLuint uvbuffer;
+		GLuint vertexbuffer;
+		GLuint programID ;
+		GLuint Texture;
+		GLuint TextureID ;
+		GLuint	 vertexUVID ;
+		 GLuint	vertexPosition_modelspaceID;
+		 GLuint	MatrixID;
+		 glm::vec3 loc;
+};
+
 class vehiculeAI
 {
 		public:
@@ -41,24 +72,28 @@ class vehiculeAI
 		void setPosition(glm::vec3 pos);
 		void setLocation(glm::vec3 vec);
 		glm::vec3 getLocation();
+		void placeRoues(bool startCamera);
+		void setGravity();
 			void move();
 			void setRotation(glm::vec3 r);
 			glm::vec3 getRotation();
 			void setLocationIncX(float y);
 			void setLocationIncZ(float y);
 			void setLocationInc(glm::vec3 l);
-			float setSpeed(float num);
-		void setSpeed(float s,float speedJoy);
-		float getSpeed();
-		float getMaxSpeed();
-		void findTarget();
-		void setActif(bool b);
-		bool getActif();
-		void fermerPorte1();
-		void fermerPorte2();
-		int getA();
-		void setA(int A);
-
+			void setSpeed(float num);
+			float getSpeed();
+			float getMaxSpeed();
+			void findTarget();
+			void setActif(bool b);
+			bool getActif();
+			void fermerPorte1();
+			void fermerPorte2();
+			int getA();
+			void setA(int A);
+			void checkPoints(glm::vec3 loc,glm::vec3 loc2);
+			void setPoints(int p);
+			int getPoints();
+			void resetPoints();
 
 
 	
@@ -66,7 +101,7 @@ class vehiculeAI
 	private:
 		
 		
-	std::vector<roue *> wheel;	
+	std::vector<roueAI *> wheel;	
 	glm::vec3 loc;
 	glm::vec3 force;
 	std::string name;
@@ -77,27 +112,27 @@ class vehiculeAI
 	glm::vec3 pos;
 	float acc, dec,dec2;
 	glm::vec3 a;
-	
  	float angle;
 	float turnSpeed;
 	float speed;
 	float maxSpeed;	
 	float s;
 	float rr,rr2;
-	int nn;
 	int randNumber;
-		objloader *obj;
-			std::vector<glm::vec3> vertices;
+	int points_;
+	int nn=0;
+	objloader *obj;
+	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
 	GLuint uvbuffer;
-GLuint vertexbuffer;
-GLuint programID ;
-GLuint Texture;
-GLuint TextureID ;
-GLuint	 vertexUVID ;
- GLuint	vertexPosition_modelspaceID;
- GLuint	MatrixID;
+	GLuint vertexbuffer;
+	GLuint programID ;
+	GLuint Texture;
+	GLuint TextureID ;
+	GLuint	 vertexUVID ;
+ 	GLuint	vertexPosition_modelspaceID;
+ 	GLuint	MatrixID;
 };
 
 #endif

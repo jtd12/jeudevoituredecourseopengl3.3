@@ -1,12 +1,12 @@
 #ifndef DEF_SOUND_H
 #define DEF_SOUND_H
 #include<fstream>
-#include"mathsutils/vector.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include<iostream>
 #include<cstring>
 #include<vector>
-#include<glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include<AL/al.h>
 #include<AL/alc.h>
 

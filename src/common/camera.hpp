@@ -6,11 +6,49 @@
 #include"C:/library/glew-1.13.0/include/GL/glew.h"
 #include<GL/gl.h>
 #include<GL/glu.h>
-#include"C:\library\glm\glm\glm.hpp"
-#include <C:/library/glm/glm/gtc/matrix_transform.hpp> 
+#include <C:\library\glm\glm\glm.hpp>
+#include <C:\library\glm\glm\gtc\matrix_transform.hpp>
+#include <C:/library/glm/glm/gtx/transform.hpp>
 #include"C:\library\freeglut\include\GL\freeglut.h"
-
+#include"objloader.hpp"
+#include"shader.hpp"
 using namespace glm;
+
+
+class bbBoxCam
+{
+	
+	public:
+		bbBoxCam(const char * filename,glm::vec3 l);
+		~bbBoxCam();
+		void update();
+		void draw(glm::mat4 ProjectionMatrix,glm::mat4 ViewMatrix,glm::mat4 ModelMatrix);
+		glm::vec3 getRotation();
+		void setRotationz(float m);
+		void setRotationzegal(float m);
+		void setRotationy(float m);
+		void setRotationyegal(float m);
+		void setLocation(glm::vec3 l);
+		glm::vec3 getLocation();
+		void setInFrontOfCamera(const glm::vec3& cameraPosition, const glm::vec3& cameraOrientation, float distanceFromCamera);
+		
+	private:
+		objloader *obj;	
+		glm::vec3 rot;
+		std::vector<glm::vec3> vertices;
+		std::vector<glm::vec2> uvs;
+		std::vector<glm::vec3> normals; // Won't be used at the moment.
+		GLuint uvbuffer;
+		GLuint vertexbuffer;
+		GLuint programID ;
+		GLuint Texture;
+		GLuint TextureID ;
+		GLuint	 vertexUVID ;
+		 GLuint	vertexPosition_modelspaceID;
+		 GLuint	MatrixID;
+		 glm::vec3 loc;
+			
+};  
 
 
 class camera
@@ -21,7 +59,8 @@ camera();
 camera(glm::vec3 position, glm::vec3 pointCible, glm::vec3 axeVertical);
 ~camera();
 void orienter(int xRel, int yRel);
-void computeMatricesFromInputs();
+void collisionCameraAndGround();
+void computeMatricesFromInputs(bool startfreecamera);
 glm::mat4 getViewMatrix();
 glm::mat4 getProjectionMatrix();
 void setPosition(glm::vec3 loc);
@@ -31,7 +70,13 @@ void inputSpecialUP(char key,int x, int y);
 void deplacer();
 void controlMouse(int button, int state, int x, int y);
 void tourner(int x, int y);
-
+void setSpeed(float s);
+float getSpeed();
+glm::vec3 getLocation();
+glm::vec3 getRotation();
+std::vector<bbBoxCam*> bb;
+std::vector<bbBoxCam*> collidersDetection;
+		
 private:
 	
 	float m_phi;
@@ -48,6 +93,8 @@ private:
 	glm::mat4 ProjectionMatrix;
 	bool mi;
 	int MidX,MidY;
+	float speed;
+	
     
 };
 
