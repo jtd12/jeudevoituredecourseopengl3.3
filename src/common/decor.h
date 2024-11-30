@@ -1,7 +1,7 @@
 #ifndef DEF_DECOR_H
 #define DEF_DECOR_H
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
+#include<GL/glew.h>
 #include<GL/gl.h>
 #include<GL/glu.h>
 #include"objloader.hpp"

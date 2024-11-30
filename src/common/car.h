@@ -1,17 +1,19 @@
 #ifndef DEF_CAR_H
 #define DEF_CAR_H
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
+#include<GL/glew.h>
+#include<GL/gl.h>
+#include<GL/glu.h>
 #include"shader.hpp"
 #include"objloader.hpp"
-#include <C:\library\glm\glm\glm.hpp>
-#include <C:\library\glm\glm\gtc\matrix_transform.hpp>
-#include <C:/library/glm/glm/gtx/transform.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include<vector>
 #include<math.h>
 #include<string>
-#include"particulesystem.h"
-#include"C:\library\freeglut\include\GL\freeglut.h"
+#include"particuleSystem.h"
+#include<GL/glut.h>
 #define ni 8
 #define SPACEBAR 32
 

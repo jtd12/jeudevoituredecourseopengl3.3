@@ -1,7 +1,7 @@
 #include <vector>
 #include <map>
 
-#include <C:/glm/glm/glm.hpp>
+#include <glm/glm.hpp>
 
 #include "vboindexer.hpp"
 

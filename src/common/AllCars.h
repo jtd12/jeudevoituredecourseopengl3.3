@@ -2,8 +2,8 @@
 #define DEF_ALLCARS_H
 #include"carAI.hpp"
 #include"car.h"
-#include"C:\library\glm\glm\glm.hpp"
-#include <C:/library/glm/glm/gtc/matrix_transform.hpp>
+#include<glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 class allVehicule
 {

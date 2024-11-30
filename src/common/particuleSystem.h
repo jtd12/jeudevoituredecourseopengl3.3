@@ -1,18 +1,20 @@
 #ifndef DEF_PARTICULESYSTEM_H
 #define DEF_PARTICULESYSTEM_H
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
+#include<GL/glew.h>
+#include<GL/gl.h>
+#include<GL/glu.h>
 #include"shader.hpp"
-#include <C:\library\glm\glm\glm.hpp>
-#include <C:\library\glm\glm\gtc\matrix_transform.hpp>
-#include <C:/library/glm/glm/gtx/transform.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include<vector>
 #include<bits/stdc++.h>
 #include<math.h>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include<string>
-#include"C:\library\freeglut\include\GL\freeglut.h"
+#include<GL/glut.h>
 #include <sstream>
 
 static float kelvinR[]={1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,1.000,0.907,0.827,0.762,0.711,0.668,0.632,0.602};

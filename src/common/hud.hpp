@@ -1,15 +1,16 @@
 #ifndef DEF_HUD_HPP
 #define DEF_HUD_HPP
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
-#include <C:\library\glm\glm\glm.hpp>
-#include <C:/library/glm/glm/gtc/type_ptr.hpp>
-#include <C:\library\glm\glm\gtc\matrix_transform.hpp>
-#include <C:/library/glm/glm/gtx/transform.hpp>
+#include<GL/glew.h>
+#include<GL/gl.h>
+#include<GL/glu.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include<vector>
 #include<math.h>
 #include<string>
-#include"C:\library\freeglut\include\GL\freeglut.h"
+#include<GL/glut.h>
 #include"shader.hpp"
 #include"texture.hpp"
 

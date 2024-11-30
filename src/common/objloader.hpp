@@ -9,8 +9,9 @@
 #include <string>
 #include <cstring>
 #include <algorithm>
-#include"C:\library\glm\glm\glm.hpp"
-#include <C:/library/glm/glm/gtc/matrix_transform.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include"texture.hpp"
 #include <cstdlib>
 #include<GL/gl.h>

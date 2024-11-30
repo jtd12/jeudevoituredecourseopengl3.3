@@ -58,20 +58,20 @@ void bbBoxCam::draw(glm::mat4 ProjectionMatrix,glm::mat4 ViewMatrix,glm::mat4 Mo
 	glUseProgram(programID);
 
 		// Compute the MVP matrix from keyboard and mouse input
-	glm::mat4 translation = glm::translate(glm::mat4(), glm::vec3(loc.x, loc.y, loc.z));
-	
-	glm::vec3 myRotationAxisY( 0.0f, 0.5f, 0.0f);
-	
-	glm::mat4 rotMatrixY= glm::rotate( rot.y, myRotationAxisY );
+   glm::mat4  translation= glm::translate(ModelMatrix, glm::vec3(loc.x, loc.y, loc.z));
+	glm::vec3 myRotationAxis( 0.0f, 0.5f, 0.0f);
+  glm::mat4 rotMatrix= glm::rotate( rot.y, myRotationAxis );
+  glm::mat4 scaling = glm::scale(ModelMatrix,glm::vec3( 2.0f, 2.0f ,2.0f));
 
-	glm::mat4 scaling = glm::scale(glm::mat4(),glm::vec3( 0.4f, 0.4f ,0.4f));
-
-		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix*translation*rotMatrixY*scaling;
+		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix*translation*rotMatrix*scaling;
 
 		// Send our transformation to the currently bound shader, 
 		// in the "MVP" uniform
 	// in the "MVP" uniform
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+//	glUniformMatrix4fv(glGetUniformLocationpshaderCouleur.getProgramID() "projection"), 1, GL_FALSE, value_ptr(projection));
+//	glUniformMatrix4fv(glGetUniformLocation(shaderCouleur.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+
 
 		// Bind our texture in Texture Unit 0
 		glActiveTexture(GL_TEXTURE0);

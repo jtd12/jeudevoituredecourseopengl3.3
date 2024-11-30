@@ -8,6 +8,12 @@ setup::setup()
 //int randNumber = rand() % 50 + 10;
 
 
+}
+
+
+void setup::init()
+{
+
 levels.push_back(new decor("name","data/decor/decor.obj","data/decor/mur.bmp"));
 levels.push_back(new decor("name","data/decor/road.obj","data/decor/road07.bmp"));
 levels.push_back(new decor("name","data/decor/decor2.obj","data/decor/Grass_01_c.bmp"));
@@ -37,7 +43,6 @@ engrenage=new water("ocean","data/engrenage/engrenage.obj","data/decor/mur.bmp")
 audio=new sound;
 sound1=audio->loadSound("data/audio/vehicule.wav");
 
-PlaySound("data/audio/background.wav", NULL, SND_LOOP |SND_ASYNC);
 
 cam=new camera();
 cam=new camera(vec3(800, 300, 1300), vec3(0, 0, 0), vec3(0, 1, 0));
@@ -53,11 +58,10 @@ hud2_->init("data/textures/aiguille.bmp",glm::vec3(3.5f,0.7f,1.2f),glm::vec3(0.5
 tHUD=new textHUD();
 tHUD->initText2D( "data/hud/Holstein.DDS" );
 finishedGame=false;
-time=500;
+time=50;
 keyV = false; 
+
 }
-
-
 
 setup::~setup()
 {
@@ -388,6 +392,7 @@ void setup::resetCar(bool startFreeCamera)
       allCars[8]->carAI[i]->setLocation(glm::vec3(1700,100,1200));
       allCars[w]->carAI[i]->setRotation(glm::vec3(0,0,0));
       allCars[w]->carAI[i]->placeRoues(startFreeCamera);
+      allCars[w]->carAI[i]->setNumberPath(0);
       allCars[w]->carAI[i]->setGravity();
 
   	}
@@ -1023,7 +1028,7 @@ void setup::draw()
 		for(int w=1;w<allCars.size();w++)
 		 for(int i=0;i<allCars[w]->carAI.size();i++)
 		 {
-			sprintf(text2,"CAR-N°:%d POINTS:%d\n                        SPEED:%.f\n",w,allCars[w]->carAI[i]->getPoints(),allCars[w]->carAI[i]->getSpeed());
+			sprintf(text2,"CAR-N\B0:%d POINTS:%d\n                        SPEED:%.f\n",w,allCars[w]->carAI[i]->getPoints(),allCars[w]->carAI[i]->getSpeed());
 			tHUD->printText2D(text2, 10, 400-(w*30), 14);
 		 }
 		 

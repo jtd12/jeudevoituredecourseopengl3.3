@@ -1,16 +1,16 @@
 #ifndef DEF_CAR_AI_HPP
 #define DEF_CAR_AI_HPP
 #include"car.h"
-#include <C:\library\glm\glm\glm.hpp>
-#include <C:\library\glm\glm\gtc\matrix_transform.hpp>
-#include <C:/library/glm/glm/gtx/transform.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 
 #include<vector>
 #include<math.h>
 #include <stdio.h>      /* printf, scanf, puts, NULL */
 #include <stdlib.h>     /* srand, rand */
 #include<string>
-#include"C:\library\freeglut\include\GL\freeglut.h"
+#include<GL/glut.h>
 #include <sstream>
 
 #define SSTR( x ) static_cast< std::ostringstream & >( \
@@ -94,6 +94,7 @@ class vehiculeAI
 			void setPoints(int p);
 			int getPoints();
 			void resetPoints();
+			void setNumberPath(int num);
 
 
 	

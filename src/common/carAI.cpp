@@ -45,24 +45,28 @@ void roueAI::update()
 }
 void roueAI::draw(glm::mat4 ProjectionMatrix,glm::mat4 ViewMatrix,glm::mat4 ModelMatrix)
 {
+
 glUseProgram(programID);
 
 		// Compute the MVP matrix from keyboard and mouse input
-	glm::mat4 translation = glm::translate(glm::mat4(), glm::vec3(loc.x, loc.y, loc.z));
+   glm::mat4  translation= glm::translate(ModelMatrix, glm::vec3(loc.x, loc.y, loc.z));
 	glm::vec3 myRotationAxisZ( 0.0f, 0.0f, 0.5f);
 	glm::vec3 myRotationAxisY( 0.0f, 0.5f, 0.0f);
 	
 	glm::mat4 rotMatrixY= glm::rotate( rot_roue.y, myRotationAxisY );
 	glm::mat4 rotMatrixZ= glm::rotate( rot_roue.z, myRotationAxisZ );
 
-	glm::mat4 scaling = glm::scale(glm::mat4(),glm::vec3( 2.0f, 2.0f ,2.0f));
+  glm::mat4 scaling = glm::scale(ModelMatrix,glm::vec3( 2.0f, 2.0f ,2.0f));
 
 		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix*translation*rotMatrixY*rotMatrixZ*scaling;
 
 		// Send our transformation to the currently bound shader, 
 		// in the "MVP" uniform
 	// in the "MVP" uniform
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+//	glUniformMatrix4fv(glGetUniformLocationpshaderCouleur.getProgramID() "projection"), 1, GL_FALSE, value_ptr(projection));
+//	glUniformMatrix4fv(glGetUniformLocation(shaderCouleur.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+
 
 		// Bind our texture in Texture Unit 0
 		glActiveTexture(GL_TEXTURE0);
@@ -99,6 +103,8 @@ glUseProgram(programID);
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
+		
+
 }
 
 glm::vec3 roueAI::getRotation()
@@ -143,9 +149,9 @@ vehiculeAI::vehiculeAI(const char* n,glm::vec3 location, float sprints,float loo
 		force=glm::vec3(0.0,-0.45f,0.0);
 		setSpeed(speed);
 		isground=iscollision=issprint=false;
-		speed=rand() % 55 + 35;
+		speed=rand() % 155 + 45;
 		angle=0;
-		maxSpeed=5.0f;
+		maxSpeed=9.0f;
 		acc=0.01f;
 		dec=0.015f;
 		turnSpeed=2.5f;
@@ -305,20 +311,23 @@ glm::vec3 vehiculeAI::getRotation()
 
 void vehiculeAI::draw(glm::mat4 ProjectionMatrix,glm::mat4 ViewMatrix,glm::mat4 ModelMatrix)
 {
+glUseProgram(programID);
 
-	glUseProgram(programID);
-glm::mat4 translation = glm::translate(glm::mat4(), glm::vec3(loc.x, loc.y, loc.z));
-glm::vec3 myRotationAxis( 0.0f, 0.5f, 0.0f);
-glm::mat4 rotMatrix= glm::rotate( a.y, myRotationAxis );
-glm::mat4 scaling = glm::scale(glm::mat4(),glm::vec3( 2.0f, 2.0f ,2.0f));
 		// Compute the MVP matrix from keyboard and mouse input
-	
+   glm::mat4  translation= glm::translate(ModelMatrix, glm::vec3(loc.x, loc.y, loc.z));
+	glm::vec3 myRotationAxis( 0.0f, 0.5f, 0.0f);
+  glm::mat4 rotMatrix= glm::rotate( a.y, myRotationAxis );
+  glm::mat4 scaling = glm::scale(ModelMatrix,glm::vec3( 2.0f, 2.0f ,2.0f));
+
 		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix*translation*rotMatrix*scaling;
 
 		// Send our transformation to the currently bound shader, 
 		// in the "MVP" uniform
 	// in the "MVP" uniform
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+//	glUniformMatrix4fv(glGetUniformLocationpshaderCouleur.getProgramID() "projection"), 1, GL_FALSE, value_ptr(projection));
+//	glUniformMatrix4fv(glGetUniformLocation(shaderCouleur.getProgramID(), "modelview"), 1, GL_FALSE, value_ptr(modelview));
+
 
 		// Bind our texture in Texture Unit 0
 		glActiveTexture(GL_TEXTURE0);
@@ -355,8 +364,6 @@ glm::mat4 scaling = glm::scale(glm::mat4(),glm::vec3( 2.0f, 2.0f ,2.0f));
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
-		
-		
 		
 		
 		for(int i=0;i<wheel.size();i++)
@@ -428,4 +435,9 @@ void vehiculeAI::findTarget()
     float beta = a.y-atan2(-ty+loc.z,tx-loc.x);
     if (sin(beta)<0) a.y+=0.005*speed/20; else a.y-=0.005*speed/20;
     if ((loc.x-tx)*(loc.x-tx)+(loc.z-ty)*(loc.z-ty)<40*40) nn=(nn+1)%num;
+   }
+   
+      void vehiculeAI::setNumberPath(int num)
+   {
+   	nn=num;
    }

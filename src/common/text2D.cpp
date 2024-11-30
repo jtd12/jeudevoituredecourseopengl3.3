@@ -2,11 +2,13 @@
 #include <cstring>
 
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
+#include<GL/glew.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include<GL/gl.h>
 #include<GL/glu.h>
-#include"C:\library\glm\glm\glm.hpp"
-#include <C:/library/glm/glm/gtc/matrix_transform.hpp> 
+
 
 using namespace glm;
 

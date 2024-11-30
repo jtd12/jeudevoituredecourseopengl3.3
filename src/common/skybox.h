@@ -1,14 +1,14 @@
 #ifndef DEF_SKYBOX_H
 #define DEF_SKYBOX_H
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
+#include<GL/glew.h>
 #include<GL/gl.h>
 #include<GL/glu.h>
 #include"shader.hpp"
 #include"objloader.hpp"
-#include <C:\library\glm\glm\glm.hpp>
-#include <C:\library\glm\glm\gtc\matrix_transform.hpp>
-#include <C:/library/glm/glm/gtx/transform.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
 #include<iostream>
 
 

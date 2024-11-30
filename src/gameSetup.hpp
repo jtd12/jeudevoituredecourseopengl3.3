@@ -4,16 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define GLEW_STATIC
-#include"C:/library/glew-1.13.0/include/GL/glew.h"
+#include<GL/glew.h>
 #include<GL/gl.h>
 #include<GL/glu.h>
-#include"C:\library\glm\glm\glm.hpp"
-#include <C:/library/glm/glm/gtc/matrix_transform.hpp> 
+#include<glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp> 
 #include"common/objloader.hpp"
 #include"common/skybox.h"
 #include"common/car.h"
 #include"common/decor.h"
-#include"common/playerCam.h"
 #include"common/water.h"
 #include"common/carAI.hpp"
 #include"common/AllCars.h"
@@ -23,10 +22,7 @@
 #include"common/hud.hpp"
 #include"common/sound.h"
 #include"common/text2D.hpp"
-#include <conio.h>
-#include<windows.h>
-#include <mmsystem.h>
-#include"C:\library\freeglut\include\GL\freeglut.h"
+#include<GL/glut.h>
 #define R 45
 
 using namespace glm;

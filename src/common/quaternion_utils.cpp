@@ -1,7 +1,7 @@
-#include <C:/glm/glm/gtc/quaternion.hpp>
-#include <C:/glm/glm/gtx/quaternion.hpp>
-#include <C:/glm/glm/gtx/euler_angles.hpp>
-#include <C:/glm/glm/gtx/norm.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
+#include <glm/gtx/euler_angles.hpp>
+#include <glm/gtx/norm.hpp>
 using namespace glm;
 
 #include "quaternion_utils.hpp"
