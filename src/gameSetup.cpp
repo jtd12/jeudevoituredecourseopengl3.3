@@ -389,7 +389,7 @@ void setup::resetCar(bool startFreeCamera)
       allCars[w]->carAI[i]->setRotation(glm::vec3(0,0,0));
       allCars[w]->carAI[i]->placeRoues(startFreeCamera);
       allCars[w]->carAI[i]->setGravity();
-
+	  allCars[w]->carAI[i]->setNumberPath(0);
   	}
 	}
 

@@ -94,6 +94,7 @@ class vehiculeAI
 			void setPoints(int p);
 			int getPoints();
 			void resetPoints();
+			void setNumberPath(int num);
 
 
 	

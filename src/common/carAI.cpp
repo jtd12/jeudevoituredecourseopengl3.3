@@ -429,3 +429,8 @@ void vehiculeAI::findTarget()
     if (sin(beta)<0) a.y+=0.005*speed/20; else a.y-=0.005*speed/20;
     if ((loc.x-tx)*(loc.x-tx)+(loc.z-ty)*(loc.z-ty)<40*40) nn=(nn+1)%num;
    }
+   
+    void vehiculeAI::setNumberPath(int num)
+   {
+   	nn=num;
+   }
